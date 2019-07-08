@@ -26,14 +26,16 @@
 #include <inttypes.h>
 
 #include "stm32f4xx_hal.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 
 #define	INLINE                      inline
 #define PR_BEGIN_EXTERN_C           extern "C" {
 #define	PR_END_EXTERN_C             }
 
-#define ENTER_CRITICAL_SECTION( )   
-#define EXIT_CRITICAL_SECTION( )    
+#define ENTER_CRITICAL_SECTION( ) taskENTER_CRITICAL()
+#define EXIT_CRITICAL_SECTION( ) taskEXIT_CRITICAL()
 
 typedef uint8_t BOOL;
 

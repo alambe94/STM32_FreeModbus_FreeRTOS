@@ -57,7 +57,7 @@ void MB_Task(void* argument)
 	{
 	eMBPoll();
 	/* Here we simply count the number of poll cycles. */
-	//usRegInputBuf[0]++;
+	usRegInputBuf[0]++;
 	}
     }
 
