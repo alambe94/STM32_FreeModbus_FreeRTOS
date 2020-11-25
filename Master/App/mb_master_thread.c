@@ -27,7 +27,7 @@ void MB_Master_Thread_Add()
 
 void MB_Master_Task(void *argument)
 {
-	eMBMasterInit(MB_RTU, 2, 9600,  MB_PAR_NONE);
+	eMBMasterInit(MB_RTU, 2, 9600, MB_PAR_NONE);
 	eMBMasterEnable();
 
 	while (1)
@@ -45,9 +45,13 @@ void MB_Master_Task(void *argument)
  *
  * @return result
  */
-eMBErrorCode eMBMasterRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNRegs )
+eMBErrorCode eMBMasterRegInputCB(UCHAR *pucRegBuffer, USHORT usAddress, USHORT usNRegs)
 {
-    return MB_ENOERR;
+	uint8_t slave_address = ucMBMasterGetDestAddress();
+	/* it already plus one in modbus function method. */
+	usAddress--;
+	(void)slave_address;
+	return MB_ENOERR;
 }
 
 /**
@@ -60,10 +64,14 @@ eMBErrorCode eMBMasterRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT
  *
  * @return result
  */
-eMBErrorCode eMBMasterRegHoldingCB(UCHAR * pucRegBuffer, USHORT usAddress,
-        USHORT usNRegs, eMBRegisterMode eMode)
+eMBErrorCode eMBMasterRegHoldingCB(UCHAR *pucRegBuffer, USHORT usAddress,
+								   USHORT usNRegs, eMBRegisterMode eMode)
 {
-    return MB_ENOERR;
+	uint8_t slave_address = ucMBMasterGetDestAddress();
+	/* it already plus one in modbus function method. */
+	usAddress--;
+	(void)slave_address;
+	return MB_ENOERR;
 }
 
 /**
@@ -76,10 +84,14 @@ eMBErrorCode eMBMasterRegHoldingCB(UCHAR * pucRegBuffer, USHORT usAddress,
  *
  * @return result
  */
-eMBErrorCode eMBMasterRegCoilsCB(UCHAR * pucRegBuffer, USHORT usAddress,
-        USHORT usNCoils, eMBRegisterMode eMode)
+eMBErrorCode eMBMasterRegCoilsCB(UCHAR *pucRegBuffer, USHORT usAddress,
+								 USHORT usNCoils, eMBRegisterMode eMode)
 {
-    return MB_ENOERR;
+	uint8_t slave_address = ucMBMasterGetDestAddress();
+	/* it already plus one in modbus function method. */
+	usAddress--;
+	(void)slave_address;
+	return MB_ENOERR;
 }
 
 /**
@@ -91,7 +103,11 @@ eMBErrorCode eMBMasterRegCoilsCB(UCHAR * pucRegBuffer, USHORT usAddress,
  *
  * @return result
  */
-eMBErrorCode eMBMasterRegDiscreteCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT usNDiscrete )
+eMBErrorCode eMBMasterRegDiscreteCB(UCHAR *pucRegBuffer, USHORT usAddress, USHORT usNDiscrete)
 {
-    return MB_ENOERR;
+	uint8_t slave_address = ucMBMasterGetDestAddress();
+	/* it already plus one in modbus function method. */
+	usAddress--;
+	(void)slave_address;
+	return MB_ENOERR;
 }
