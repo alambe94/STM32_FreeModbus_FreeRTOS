@@ -115,7 +115,7 @@ void vMBMasterOsResInit(void)
 BOOL xMBMasterRunResTake(LONG lTimeOut)
 {
     /*If waiting time is -1 .It will wait forever */
-    return xSemaphoreTake(xMasterRunRes, lTimeOut) ? FALSE : TRUE;
+    return xSemaphoreTake(xMasterRunRes, lTimeOut);
 }
 
 /**
