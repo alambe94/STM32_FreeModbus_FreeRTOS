@@ -102,6 +102,7 @@ BOOL xMBMasterPortEventGet(eMBMasterEventType *eEvent)
 void vMBMasterOsResInit(void)
 {
     xMasterRunRes = xSemaphoreCreateBinaryStatic(&xMasterRunRes_Buffer);
+    xSemaphoreGive(xMasterRunRes);
 }
 
 /**
